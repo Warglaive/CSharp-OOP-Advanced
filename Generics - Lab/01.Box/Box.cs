@@ -6,7 +6,7 @@ public class Box<T>
 
     public int Count => data.Count;
 
-    protected Box()
+    public Box()
     {
         this.data = new List<T>();
     }
