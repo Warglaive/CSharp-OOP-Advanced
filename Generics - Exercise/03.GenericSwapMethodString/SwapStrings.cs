@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-
 public class SwapStrings<T>
 {
     private List<T> PrintList;
