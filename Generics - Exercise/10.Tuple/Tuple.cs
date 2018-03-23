@@ -4,8 +4,8 @@ using System.Text;
 
 public class Tuple<T>
 {
-    public object Item1 { get; set; }
-    public object Item2 { get; set; }
+    private object Item1 { get; set; }
+    private object Item2 { get; set; }
 
     public Tuple(T item1, T item2)
     {
