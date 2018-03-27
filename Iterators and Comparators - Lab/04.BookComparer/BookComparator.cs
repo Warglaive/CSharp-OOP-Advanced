@@ -15,4 +15,3 @@ public class BookComparator : IComparer<Book>
         return result;
     }
 }
-
