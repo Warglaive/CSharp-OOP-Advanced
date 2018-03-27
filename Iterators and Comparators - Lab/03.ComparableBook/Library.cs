@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 public class Library : IEnumerable<Book>
 {
-    private List<Book> books { get; }
+    private SortedSet<Book> books { get; }
 
     public Library(params Book[] books)
     {
-        this.books = new List<Book>(books);
+        this.books = new SortedSet<Book>(books);
     }
 
     public IEnumerator<Book> GetEnumerator()
@@ -29,15 +29,7 @@ public class Library : IEnumerable<Book>
             this.books = new List<Book>(books);
         }
 
-        public bool MoveNext()
-        {
-            if (++currentIndex > this.books.Count)
-            {
-                return false;
-            }
-            return true;
-        }
-
+        public bool MoveNext() => ++currentIndex < this.books.Count;
         public void Reset()
         {
             this.currentIndex = -1;

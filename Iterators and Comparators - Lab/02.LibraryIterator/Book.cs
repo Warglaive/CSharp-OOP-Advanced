@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+
 public class Book
 {
     public Book(string title, int year, params string[] authors)
@@ -8,7 +9,9 @@ public class Book
         this.Authors = authors;
     }
 
-    public string Title { get; }
-    public int Year { get; }
-    public IReadOnlyList<string> Authors { get; }
+    public string Title { get; set; }
+
+    public int Year { get; set; }
+
+    public IReadOnlyList<string> Authors { get; set; }
 }

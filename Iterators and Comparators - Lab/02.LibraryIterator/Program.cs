@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 public class Program
 {
@@ -11,8 +11,8 @@ public class Program
 
         Library libraryOne = new Library();
         Library libraryTwo = new Library(bookOne, bookTwo, bookThree);
-
-        foreach (var book in Library.LibraryIterator)
+        
+        foreach (var book in libraryTwo)
         {
             Console.WriteLine(book.Title);
         }
