@@ -12,8 +12,13 @@ public class ListyIterator<T>
     {
         this.Collection = collection;
     }
-    public void Move()
+    public bool Move()
     {
-        currentIndex++;
+        if (currentIndex + 1 <= this.Collection.Count)
+        {
+            currentIndex++;
+            return true;
+        }
+        return false;
     }
 }
