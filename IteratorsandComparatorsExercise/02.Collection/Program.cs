@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 public class Program
 {
@@ -29,6 +28,9 @@ public class Program
                         break;
                     case "Print":
                         listyIterator.Print();
+                        break;
+                    case "PrintAll":
+                        listyIterator.PrintAll();
                         break;
                     case "HasNext":
                         Console.WriteLine(listyIterator.HasNext());

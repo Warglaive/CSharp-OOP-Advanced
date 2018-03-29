@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class ListyIterator<T>
+public class ListyIterator<T> : IEnumerable<T>
 {
     public List<T> Collection { get; set; }
     public int currentIndex;
@@ -41,4 +42,28 @@ public class ListyIterator<T>
         }
         Console.WriteLine(this.Collection[this.currentIndex]);
     }
+    //
+
+    public void PrintAll()
+    {
+        foreach (var element in Collection)
+        {
+            Console.Write($"{element} ");
+        }
+        Console.WriteLine();
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        for (var i = 0; i < this.Collection.Count; i++)
+        {
+            yield return this.Collection[i];
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
 }
