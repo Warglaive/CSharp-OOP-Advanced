@@ -5,7 +5,15 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.Stealer", "01.Stealer\01.Stealer.csproj", "{855907C8-776E-48C9-90E3-100487636F42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.HighQualityMistakes", "02.HighQualityMistakes\02.HighQualityMistakes.csproj", "{698A4F0A-3381-449E-A94C-F90847BD702D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.HighQualityMistakes", "02.HighQualityMistakes\02.HighQualityMistakes.csproj", "{698A4F0A-3381-449E-A94C-F90847BD702D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.MissionPrivateImpossible", "03.MissionPrivateImpossible\03.MissionPrivateImpossible.csproj", "{6E505299-C5BD-4561-AEDA-D397201B27A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Collector", "04.Collector\04.Collector.csproj", "{F21D3F8E-33BE-441D-ACB6-FA50D611E207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.CreateAttribute", "05.CreateAttribute\05.CreateAttribute.csproj", "{DB8F8C24-E019-4356-AAF1-DDDC9320F68F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.CodeTracker", "06.CodeTracker\06.CodeTracker.csproj", "{0D59744E-0346-44C7-80DA-00E5715C4C1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{698A4F0A-3381-449E-A94C-F90847BD702D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{698A4F0A-3381-449E-A94C-F90847BD702D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{698A4F0A-3381-449E-A94C-F90847BD702D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E505299-C5BD-4561-AEDA-D397201B27A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E505299-C5BD-4561-AEDA-D397201B27A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E505299-C5BD-4561-AEDA-D397201B27A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E505299-C5BD-4561-AEDA-D397201B27A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F21D3F8E-33BE-441D-ACB6-FA50D611E207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F21D3F8E-33BE-441D-ACB6-FA50D611E207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F21D3F8E-33BE-441D-ACB6-FA50D611E207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F21D3F8E-33BE-441D-ACB6-FA50D611E207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB8F8C24-E019-4356-AAF1-DDDC9320F68F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB8F8C24-E019-4356-AAF1-DDDC9320F68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB8F8C24-E019-4356-AAF1-DDDC9320F68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB8F8C24-E019-4356-AAF1-DDDC9320F68F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D59744E-0346-44C7-80DA-00E5715C4C1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D59744E-0346-44C7-80DA-00E5715C4C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D59744E-0346-44C7-80DA-00E5715C4C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D59744E-0346-44C7-80DA-00E5715C4C1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
