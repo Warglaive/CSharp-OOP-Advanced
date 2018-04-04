@@ -1,9 +1,9 @@
 ﻿using System;
 
-[SoftUni("Ventsi")]
+[SoftUniAttribute("Ventsi")]
 public class StartUp
 {
-    [SoftUni("Gosho")]
+    [SoftUniAttribute("Gosho")]
     public static void Main()
     {
         var tracker = new Tracker();

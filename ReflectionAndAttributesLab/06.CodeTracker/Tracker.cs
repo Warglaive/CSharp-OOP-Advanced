@@ -12,7 +12,8 @@ public class Tracker
                                     | BindingFlags.Static);
         foreach (var methodInfo in methods)
         {
-            if (methodInfo.CustomAttributes.Any(n => n.AttributeType == typeof(SoftUniAttribute)))
+            if (methodInfo.CustomAttributes
+                .Any(n => n.AttributeType == typeof(SoftUniAttribute)))
             {
                 var attrs = methodInfo.GetCustomAttributes(false);
                 foreach (SoftUniAttribute attr in attrs)
