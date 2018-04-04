@@ -13,7 +13,8 @@ public class Tracker
         foreach (var methodInfo in methods)
         {
             if (methodInfo.CustomAttributes
-                .Any(n => n.AttributeType == typeof(SoftUniAttribute)))
+                .Any(n => n.AttributeType 
+                == typeof(SoftUniAttribute)))
             {
                 var attrs = methodInfo.GetCustomAttributes(false);
                 foreach (SoftUniAttribute attr in attrs)
