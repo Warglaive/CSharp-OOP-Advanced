@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using _03BarracksFactory.Contracts;
 
-namespace P04_BarrackWarsTheCommandsStrikeBack.Core.Commands
+namespace _03BarracksFactory.Core.Commands
 {
     public class FightCommand : Command
     {
-        public FightCommand(string[] data, IRepository repository, IUnitFactory unitFactory) 
-            : base(data, repository, unitFactory)
+        public FightCommand(string[] data) 
+            : base(data)
         {
         }
 
