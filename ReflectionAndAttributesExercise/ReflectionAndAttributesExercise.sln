@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P02_BlackBoxInteger", "P02_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03_BarraksWars", "P03_BarraksWars\P03_BarraksWars.csproj", "{3BF62EF3-273B-4AE5-A4A4-7DDC7F99221A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_BarrackWarsTheCommandsStrikeBack", "04.BarracksWars-TheCommandsStrikeBack\P04_BarrackWarsTheCommandsStrikeBack.csproj", "{986F0F15-487F-4C17-9172-7236AD7BCC55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3BF62EF3-273B-4AE5-A4A4-7DDC7F99221A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BF62EF3-273B-4AE5-A4A4-7DDC7F99221A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BF62EF3-273B-4AE5-A4A4-7DDC7F99221A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{986F0F15-487F-4C17-9172-7236AD7BCC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{986F0F15-487F-4C17-9172-7236AD7BCC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{986F0F15-487F-4C17-9172-7236AD7BCC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{986F0F15-487F-4C17-9172-7236AD7BCC55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
