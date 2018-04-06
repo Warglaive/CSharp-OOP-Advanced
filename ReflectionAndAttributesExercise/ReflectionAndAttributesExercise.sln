@@ -11,10 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P03_BarraksWars", "P03_Barr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P04_BarrackWarsTheCommandsStrikeBack", "04.BarracksWars-TheCommandsStrikeBack\P04_BarrackWarsTheCommandsStrikeBack.csproj", "{986F0F15-487F-4C17-9172-7236AD7BCC55}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{647B405A-77C6-4C05-BBDD-52C1FBBE80B7}"
-	ProjectSection(SolutionItems) = preProject
-		05. BarracksWars - Return of the Dependencies\05.BarracksWars-ReturnOfTheDependencies.csproj = 05. BarracksWars - Return of the Dependencies\05.BarracksWars-ReturnOfTheDependencies.csproj
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P05.BarracksWars-ReturnOfTheDependencies", "05. BarracksWars - Return of the Dependencies\P05.BarracksWars-ReturnOfTheDependencies.csproj", "{1EF61304-3A27-4E9E-A2F3-E6CEDA921D67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +35,10 @@ Global
 		{986F0F15-487F-4C17-9172-7236AD7BCC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{986F0F15-487F-4C17-9172-7236AD7BCC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{986F0F15-487F-4C17-9172-7236AD7BCC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF61304-3A27-4E9E-A2F3-E6CEDA921D67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF61304-3A27-4E9E-A2F3-E6CEDA921D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF61304-3A27-4E9E-A2F3-E6CEDA921D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF61304-3A27-4E9E-A2F3-E6CEDA921D67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
