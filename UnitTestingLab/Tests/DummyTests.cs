@@ -7,7 +7,9 @@ namespace Tests
         [Test]
         public void Dummy_LosesHealth_WhenAttacked()
         {
-            var dummy = new Dummy(10, 10);
+            var dummyHealth = 10;
+            var dummyXP = 10;
+            var dummy = new Dummy(dummyHealth, dummyXP);
             dummy.TakeAttack(5);
             Assert.That(dummy.Health, Is.EqualTo(5));
         }
@@ -15,8 +17,15 @@ namespace Tests
         [Test]
         public void DeadDummy_ThrowException_WhenAttacked()
         {
-            var attacker = new Axe(20, 20);
-            var dummy = new Dummy(10, 10);
+            var axeAttack = 20;
+            var axeDurability = 20;
+
+            var dummyHealth = 10;
+            var dummyXP = 10;
+
+            var attacker = new Axe(axeAttack, axeDurability);
+            var dummy = new Dummy(dummyHealth, dummyXP);
+
             attacker.Attack(dummy);
             Assert.IsTrue(dummy.IsDead(), "Can't Attack dead dummy!");
         }
@@ -24,8 +33,15 @@ namespace Tests
         [Test]
         public void DeadDummy_CanGive_Experience()
         {
-            var attacker = new Axe(20, 20);
-            var dummy = new Dummy(1, 10);
+            var axeAttack = 20;
+            var axeDurability = 20;
+
+            var dummyHealth = 1;
+            var dummyXP = 10;
+
+            var attacker = new Axe(axeAttack, axeDurability);
+            var dummy = new Dummy(dummyHealth, dummyXP);
+
             attacker.Attack(dummy);
             Assert.IsTrue(dummy.IsDead());
             dummy.GiveExperience();
@@ -34,8 +50,14 @@ namespace Tests
         [Test]
         public void AliveDummy_CantGive_Experience()
         {
-            var attacker = new Axe(9, 20);
-            var dummy = new Dummy(10, 10);
+            var axeAttack = 9;
+            var axeDurability = 20;
+
+            var dummyHealth = 10;
+            var dummyXP = 10;
+
+            var attacker = new Axe(axeAttack, axeDurability);
+            var dummy = new Dummy(dummyHealth, dummyXP);
             attacker.Attack(dummy);
             Assert.IsFalse(dummy.IsDead(),
                 "alive dummy can't give xp");
