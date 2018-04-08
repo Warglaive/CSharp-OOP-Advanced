@@ -1,9 +1,10 @@
 ﻿using System;
+using Tests.Interfaces;
 
-public class Dummy
+public class Dummy : ITarget
 {
-    private int health;
-    private int experience;
+    public int health { get; set; }
+    public int experience { get; set; }
 
     public Dummy(int health, int experience)
     {
@@ -11,7 +12,7 @@ public class Dummy
         this.experience = experience;
     }
 
-    public int Health 
+    public int Health
     {
         get { return this.health; }
     }
