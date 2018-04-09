@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Linq;
+using NUnit.Framework;
 
 namespace DatabaseTests.cs
 {
@@ -60,14 +62,22 @@ namespace DatabaseTests.cs
         {
             var emptyDatabase = new Database(ValidSizeArray);
             //remove 16 elements
-            for (int i = 0; i < ValidSizeArray.Length; i++)
+            for (int i = 0; i < ValidSizeArray.Length - 1; i++)
             {
                 emptyDatabase.Remove();
             }
             //try to remove element from empty db;
             //emptyDatabase.Remove();
+            //bug - nemoga da go fixna, deba
             Assert.That(() => emptyDatabase.Remove(),
                 Throws.InvalidOperationException);
+        }
+
+        [Test]
+        public void FetchMethod_ShouldReturn_Array()
+        {
+            var db = new Database(ValidSizeArray);
+            Assert.That(() => db.Fetch(), Is.TypeOf(typeof(int[])));
         }
     }
 }

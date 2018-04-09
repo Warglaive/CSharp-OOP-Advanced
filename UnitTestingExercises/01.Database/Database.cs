@@ -39,12 +39,13 @@ public class Database
         {
             throw new InvalidOperationException();
         }
+        //remove last element
         Array.Resize(ref this.IntegersDB, this.IntegersDB.Length - 1);
+
         if (this.IntegersDB.Length == 0)
         {
             throw new InvalidOperationException();
         }
-        this.IntegersDB[this.IntegersDB.Length - 1] = 0;
     }
 
     public int[] Fetch()
