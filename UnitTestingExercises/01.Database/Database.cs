@@ -4,7 +4,7 @@ using System.Linq;
 public class Database
 {
     public int[] IntegersDB;
-    public const int arrayExactLength = 16;
+    private const int arrayExactLength = 16;
     private int index;
 
     public Database(int[] integers)
