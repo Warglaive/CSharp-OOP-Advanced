@@ -62,7 +62,7 @@ public class Database
         }
     }
 
-    public void FindByUsername(string username)
+    public Person FindByUsername(string username)
     {
         var result = this.peopleDB.FirstOrDefault(p => p.Name == username);
 
@@ -71,14 +71,30 @@ public class Database
             throw new InvalidOperationException();
         }
 
-        if (result.Name == null && result.Id != null)
+        if (result.Name == null)
         {
             throw new ArgumentNullException();
         }
+        return result;
     }
 
-    //public int[] Fetch()
-    //{
-    //    return this.peopleDB;
-    //}
+    public Person FindById(long id)
+    {
+        var result = this.peopleDB.FirstOrDefault(p => p.Id == id);
+
+        if (result == null)
+        {
+            throw new InvalidOperationException();
+        }
+
+        if (result.Id < 0)
+        {
+            throw new ArgumentOutOfRangeException();
+        }
+        return result;
+    }
+    public Person[] Fetch()
+    {
+        return this.peopleDB;
+    }
 }

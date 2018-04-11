@@ -1,9 +1,9 @@
 ﻿public class Person
 {
-    public string Id { get; }
+    public long Id { get; }
     public string Name { get; }
 
-    public Person(string id, string name)
+    public Person(long id, string name)
     {
         this.Id = id;
         this.Name = name;
