@@ -1,5 +1,5 @@
-﻿using NUnit.Framework;
-
+﻿using Newtonsoft.Json;
+using NUnit.Framework;
 public class ExtendedDbTest
 {
     private Person[] people;
@@ -50,7 +50,7 @@ public class ExtendedDbTest
     }
     //
     [Test]
-    public void Remove_Element_FromEmptyDB()
+    public void Remove_Element_DB()
     {
         this.people = new Person[16];
         for (int i = 0; i < this.people.Length; i++)
@@ -58,7 +58,41 @@ public class ExtendedDbTest
             var first15Persons = new Person(i, $"{i}+Number");
             this.people[i] = first15Persons;
         }
-      //  Assert.That((=>new Database(this.people).Remove())
-     //       ,Is.);
+        var dbToRemoveFrom = new Database(this.people);
+        Assert.IsTrue(dbToRemoveFrom.Remove());
+    }
+    [Test]
+    public void NoUsernameIsPresent_Exception()
+    {
+        this.people = new Person[16];
+        for (int i = 0; i < this.people.Length; i++)
+        {
+            var first15Persons = new Person(i, $"{i}+Number");
+            this.people[i] = first15Persons;
+        }
+        var findByUsernameDb = new Database(this.people);
+
+        var personToBeFound = new Person(99, "tyrseniq");
+
+        Assert.That(() => findByUsernameDb
+            .FindByUsername(personToBeFound.Name)
+            , Throws.InvalidOperationException);
+
+    }
+
+    [Test]
+    public void ThrowException_WhenUsername_IsNull()
+    {
+        this.people = new Person[16];
+        for (int i = 0; i < this.people.Length; i++)
+        {
+            var first15Persons = new Person(i, $"{i}+Number");
+            this.people[i] = first15Persons;
+        }
+        var db = new Database(this.people);
+        var nullUsername = new Person(1, null);
+
+        Assert.That(() => db.FindByUsername(nullUsername.Name)
+            , Throws.ArgumentNullException);
     }
 }

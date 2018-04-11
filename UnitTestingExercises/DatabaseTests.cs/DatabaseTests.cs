@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace DatabaseTests.cs
 {
@@ -55,16 +56,25 @@ namespace DatabaseTests.cs
         //        Throws.InvalidOperationException);
         //}
 
+        //[Test]
+        //public void Remove_LastElement_FromEmpty_DB()
+        //{
+        //    var emptyDB = new Database(ValidSizeArray);
+        //    //remove 16 elements
+        //    for (int i = 0; i < ValidSizeArray.Length; i++)
+        //    {
+        //        emptyDB.Remove();
+        //    }
+        //    //not possible to test, im too dumb
+        //    Assert.That(emptyDB.Remove()
+        //        , Throws.InvalidOperationException);
+        //}
+
         [Test]
-        public void Remove_LastElement_FromEmptyDB()
+        public void Remove_LastElement_FromDB()
         {
-            var emptyDatabase = new Database(ValidSizeArray);
-            //remove 16 elements
-            for (int i = 0; i < ValidSizeArray.Length - 1; i++)
-            {
-                emptyDatabase.Remove();
-            }
-            Assert.IsTrue(emptyDatabase.Remove());
+            var nonEmptyDB = new Database(ValidSizeArray);
+            Assert.IsTrue(nonEmptyDB.Remove());
         }
 
         [Test]

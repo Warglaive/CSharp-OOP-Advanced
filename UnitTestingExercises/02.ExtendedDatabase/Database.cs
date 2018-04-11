@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-
 public class Database
 {
     private Person[] peopleDB;
@@ -54,7 +53,6 @@ public class Database
         }
 
         //remove last element
-        var oldLength = this.peopleDB.Length;
         var newLength = this.peopleDB.Length - 1;
         Array.Resize(ref this.peopleDB, this.peopleDB.Length - 1);
         if (this.peopleDB.Length == newLength)
@@ -66,17 +64,19 @@ public class Database
 
     public Person FindByUsername(string username)
     {
-        var result = this.peopleDB.FirstOrDefault(p => p.Name == username);
+        var result = this.peopleDB
+            .FirstOrDefault(p => p.Name == username);
+
+        if (result.Name == null)
+        {
+            throw new ArgumentNullException();
+        }
 
         if (result == null)
         {
             throw new InvalidOperationException();
         }
 
-        if (result.Name == null)
-        {
-            throw new ArgumentNullException();
-        }
         return result;
     }
 

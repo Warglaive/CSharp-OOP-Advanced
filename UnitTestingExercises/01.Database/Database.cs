@@ -46,8 +46,11 @@ public class Database
         }
 
         //remove last element
-        var oldLength = this.IntegersDB.Length;
         var newLength = this.IntegersDB.Length - 1;
+        if (newLength < 0)
+        {
+            throw new InvalidOperationException();
+        }
         Array.Resize(ref this.IntegersDB, this.IntegersDB.Length - 1);
         if (this.IntegersDB.Length == newLength)
         {
