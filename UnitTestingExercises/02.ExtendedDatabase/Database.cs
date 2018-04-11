@@ -66,8 +66,7 @@ public class Database
     {
         var result = this.peopleDB
             .FirstOrDefault(p => p.Name == username);
-
-        if (result.Name == null)
+        if (result != null && result.Name == null)
         {
             throw new ArgumentNullException();
         }

@@ -90,9 +90,26 @@ public class ExtendedDbTest
             this.people[i] = first15Persons;
         }
         var db = new Database(this.people);
-        var nullUsername = new Person(1, null);
+        var nullUsername = new Person(50, null);
+
+        db.Add(nullUsername);
 
         Assert.That(() => db.FindByUsername(nullUsername.Name)
-            , Throws.ArgumentNullException);
+            , Throws.Exception);
+    }
+
+    [Test]
+    public void InvalidOperationException_WhenUserWithId_Missing()
+    {
+        this.people = new Person[16];
+        for (int i = 0; i < this.people.Length; i++)
+        {
+            var first15Persons = new Person(i, $"{i}+Number");
+            this.people[i] = first15Persons;
+        }
+        var db = new Database(this.people);
+        var idToLookFor = new Person(200, "x");
+        Assert.That(() => db.FindById(idToLookFor.Id)
+        , Throws.InvalidOperationException);
     }
 }
