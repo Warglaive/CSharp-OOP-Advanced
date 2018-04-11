@@ -4,7 +4,6 @@ using System.Linq;
 public class Database
 {
     private Person[] peopleDB;
-    private Person person;
     private const int arrayExactLength = 16;
     private int index;
 
@@ -15,17 +14,12 @@ public class Database
             throw new InvalidOperationException();
         }
         //
-        this.peopleDB = new Person[people.Length];
+        this.peopleDB = people;
         this.index = 0;
     }
 
     public void Add(Person addPerson)
     {
-        if (this.peopleDB.Length == 16)
-        {
-            throw new InvalidOperationException();
-        }
-
         if (this.peopleDB.Any(n => n.Name == addPerson.Name))
         {
             throw new InvalidOperationException();
@@ -47,19 +41,27 @@ public class Database
         }
     }
 
-    public void Remove()
+    public bool Remove()
     {
         if (this.peopleDB.Length == 0)
         {
             throw new InvalidOperationException();
         }
-        //remove last element
-        Array.Resize(ref this.peopleDB, this.peopleDB.Length - 1);
 
         if (this.peopleDB.Length == 0)
         {
             throw new InvalidOperationException();
         }
+
+        //remove last element
+        var oldLength = this.peopleDB.Length;
+        var newLength = this.peopleDB.Length - 1;
+        Array.Resize(ref this.peopleDB, this.peopleDB.Length - 1);
+        if (this.peopleDB.Length == newLength)
+        {
+            return true;
+        }
+        return false;
     }
 
     public Person FindByUsername(string username)

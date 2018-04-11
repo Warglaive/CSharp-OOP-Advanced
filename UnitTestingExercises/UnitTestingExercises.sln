@@ -5,9 +5,11 @@ VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.Database", "01.Database\01.Database.csproj", "{DDC007C8-D5AD-4B2A-9F73-E20EED9C524D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseTests.cs", "DatabaseTests.cs\DatabaseTests.cs.csproj", "{07E6F79B-1338-46AC-8153-DC58DC4BCF9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.DatabaseTests.cs", "DatabaseTests.cs\01.DatabaseTests.cs.csproj", "{07E6F79B-1338-46AC-8153-DC58DC4BCF9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.ExtendedDatabase", "02.ExtendedDatabase\02.ExtendedDatabase.csproj", "{59ED948B-BD16-42A8-9154-3DACE6416E1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.ExtendedDatabase", "02.ExtendedDatabase\02.ExtendedDatabase.csproj", "{59ED948B-BD16-42A8-9154-3DACE6416E1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.ExtendedDBTest.Tests", "02.ExtendedDBTest\02.ExtendedDBTest.Tests.csproj", "{786CD87A-433F-4C4F-BFD0-A08A71574743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{59ED948B-BD16-42A8-9154-3DACE6416E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59ED948B-BD16-42A8-9154-3DACE6416E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59ED948B-BD16-42A8-9154-3DACE6416E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{786CD87A-433F-4C4F-BFD0-A08A71574743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786CD87A-433F-4C4F-BFD0-A08A71574743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786CD87A-433F-4C4F-BFD0-A08A71574743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786CD87A-433F-4C4F-BFD0-A08A71574743}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
