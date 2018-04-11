@@ -58,7 +58,7 @@ public class ExtendedDbTest
             var first15Persons = new Person(i, $"{i}+Number");
             this.people[i] = first15Persons;
         }
-        Assert.That((=>new Database(this.people).Remove())
-            ,Is.);
+      //  Assert.That((=>new Database(this.people).Remove())
+     //       ,Is.);
     }
 }

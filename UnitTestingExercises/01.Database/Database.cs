@@ -19,7 +19,7 @@ public class Database
 
     public void Add(int integer)
     {
-        if (this.IntegersDB.Length == 16)
+        if (this.IntegersDB.Length != 16)
         {
             throw new InvalidOperationException();
         }
@@ -33,19 +33,27 @@ public class Database
         }
     }
 
-    public void Remove()
+    public bool Remove()
     {
         if (this.IntegersDB.Length == 0)
         {
             throw new InvalidOperationException();
         }
-        //remove last element
-        Array.Resize(ref this.IntegersDB, this.IntegersDB.Length - 1);
 
         if (this.IntegersDB.Length == 0)
         {
             throw new InvalidOperationException();
         }
+
+        //remove last element
+        var oldLength = this.IntegersDB.Length;
+        var newLength = this.IntegersDB.Length - 1;
+        Array.Resize(ref this.IntegersDB, this.IntegersDB.Length - 1);
+        if (this.IntegersDB.Length == newLength)
+        {
+            return true;
+        }
+        return false;
     }
 
     public int[] Fetch()

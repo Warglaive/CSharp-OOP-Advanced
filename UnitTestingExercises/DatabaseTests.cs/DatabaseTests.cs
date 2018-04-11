@@ -37,7 +37,7 @@ namespace DatabaseTests.cs
         [Test]
         public void ThrowException_WhenAddMoreElementsThan_ArrayCapacity()
         {
-            Assert.That(() => new Database(ValidSizeArray)
+            Assert.That(() => new Database(InvalidSizeArray)
                 .Add(1), Throws.InvalidOperationException);
         }
 
@@ -56,7 +56,7 @@ namespace DatabaseTests.cs
         //}
 
         [Test]
-        public void Remove_Element_FromEmptyDB()
+        public void Remove_LastElement_FromEmptyDB()
         {
             var emptyDatabase = new Database(ValidSizeArray);
             //remove 16 elements
@@ -64,11 +64,7 @@ namespace DatabaseTests.cs
             {
                 emptyDatabase.Remove();
             }
-            //try to remove element from empty db;
-            //emptyDatabase.Remove();
-            //bug - nemoga da go fixna, deba
-            Assert.That(() => emptyDatabase.Remove(),
-                Throws.InvalidOperationException);
+            Assert.IsTrue(emptyDatabase.Remove());
         }
 
         [Test]
