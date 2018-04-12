@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Iterator", "03.IteratorT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.IteratorTests", "03.IteratorTests\03.IteratorTests.csproj", "{DBDBE4CF-DDB4-4F99-9258-6637C8742CAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSort", "BubbleSort\BubbleSort.csproj", "{74134C6D-9825-4364-ABE7-D83CA9D1B46E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{DBDBE4CF-DDB4-4F99-9258-6637C8742CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBDBE4CF-DDB4-4F99-9258-6637C8742CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBDBE4CF-DDB4-4F99-9258-6637C8742CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74134C6D-9825-4364-ABE7-D83CA9D1B46E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74134C6D-9825-4364-ABE7-D83CA9D1B46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74134C6D-9825-4364-ABE7-D83CA9D1B46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74134C6D-9825-4364-ABE7-D83CA9D1B46E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
