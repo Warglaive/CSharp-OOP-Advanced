@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BubbleSort
 {
@@ -14,14 +15,13 @@ namespace BubbleSort
         {
             var length = this.integersToSort.Count;
 
-            int temp = this.integersToSort[0];
             for (int i = 0; i < length; i++)
             {
                 for (int j = i + 1; j < length; j++)
                 {
                     if (this.integersToSort[i] > this.integersToSort[j])
                     {
-                        temp = this.integersToSort[i];
+                        var temp = this.integersToSort[i];
                         this.integersToSort[i] = this.integersToSort[j];
                         this.integersToSort[j] = temp;
                     }
