@@ -112,4 +112,21 @@ public class ExtendedDbTest
         Assert.That(() => db.FindById(idToLookFor.Id)
         , Throws.InvalidOperationException);
     }
+
+    [Test]
+    public void NegativeIdException()
+    {
+        this.people = new Person[16];
+        for (int i = 0; i < this.people.Length; i++)
+        {
+            var first15Persons = new Person(i, $"{i}+Number");
+            this.people[i] = first15Persons;
+        }
+        var negativeIdPerson = new Person(-1, "x");
+        var db = new Database(this.people);
+        //add to the top of array
+        db.Add(negativeIdPerson);
+        Assert.That(() => db.FindById(negativeIdPerson.Id)
+        , Throws.Exception);
+    }
 }

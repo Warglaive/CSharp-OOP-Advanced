@@ -29,15 +29,7 @@ public class Database
             throw new InvalidOperationException();
         }
         //add if name is empty string
-        if (this.peopleDB[index].Name == null)
-        {
-            this.peopleDB[index] = addPerson;
-            index++;
-        }
-        else
-        {
-            index++;
-        }
+        this.peopleDB[index++] = addPerson;
     }
 
     public bool Remove()
