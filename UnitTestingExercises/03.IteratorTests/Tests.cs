@@ -13,7 +13,28 @@ namespace _03.IteratorTests
             Assert.That(() => new ListIterator(null)
             , Throws.ArgumentNullException);
         }
-        //TestMove
+        //HasNextTests
+        [Test]
+        public void HasNextIndex_TrueTest()
+        {
+            var iterator = new ListIterator(SmallArr);
+            var oldIndex = iterator.Index;
+            iterator.Move();
+            var newIndex = iterator.Index;
+            Assert.Less(oldIndex, newIndex);
+        }
+
+        [Test]
+        public void HasNextIndex_FalseTest()
+        {
+            var iterator = new ListIterator(new[] { "1" });
+            var oldIndex = iterator.Index;
+            iterator.Move();
+            var newIndex = iterator.Index;
+            Assert.AreEqual(oldIndex, newIndex);
+        }
+
+        //MoveTests
         [Test]
         public void SuccessfullyMoved_Moved_MustReturnTrue()
         {
@@ -23,13 +44,11 @@ namespace _03.IteratorTests
         [Test]
         public void UnSuccesfullMove_LastIndexReached_MustReturnFalse()
         {
-            var arr = new[] { "1", "2", "3" };
-            var iterator = new ListIterator(arr);
+            var iterator = new ListIterator(SmallArr);
             //set to the lastIndex
-            iterator.Index = arr.Length;
+            iterator.Index = SmallArr.Length;
             Assert.IsFalse(iterator.Move());
         }
-        //TestHasNext
 
     }
 }
