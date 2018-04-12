@@ -49,6 +49,14 @@ namespace _03.IteratorTests
             iterator.Index = SmallArr.Length;
             Assert.IsFalse(iterator.Move());
         }
-
+        //Print
+        [Test]
+        public void NothingToPrintExceptionThrown()
+        {
+            var emptyArr = new string[0];
+            var iterator = new ListIterator(emptyArr);
+            Assert.That(() => iterator.Print()
+            , Throws.InvalidOperationException);
+        }
     }
 }
