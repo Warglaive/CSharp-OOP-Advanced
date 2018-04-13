@@ -10,6 +10,6 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
   </ItemGroup>
 <ItemGroup>
-  <ProjectReference Include="..\BubbleSort\BubbleSort.csproj" />
+  <ProjectReference Include="..\BubbleSort\04.BubbleSort.csproj" />
 </ItemGroup>
 </Project>

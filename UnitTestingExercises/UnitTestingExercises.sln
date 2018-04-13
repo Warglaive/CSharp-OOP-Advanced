@@ -11,13 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.ExtendedDatabase", "02.E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.ExtendedDBTest.Tests", "02.ExtendedDBTest\02.ExtendedDBTest.Tests.csproj", "{786CD87A-433F-4C4F-BFD0-A08A71574743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Iterator", "03.IteratorTest\03.Iterator.csproj", "{BA9D79D4-89C8-46B3-B166-241D2724A3F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.Iterator", "03.IteratorTest\03.Iterator.csproj", "{BA9D79D4-89C8-46B3-B166-241D2724A3F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.IteratorTests", "03.IteratorTests\03.IteratorTests.csproj", "{DBDBE4CF-DDB4-4F99-9258-6637C8742CAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03.IteratorTests", "03.IteratorTests\03.IteratorTests.csproj", "{DBDBE4CF-DDB4-4F99-9258-6637C8742CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSort", "BubbleSort\BubbleSort.csproj", "{74134C6D-9825-4364-ABE7-D83CA9D1B46E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.BubbleSort", "BubbleSort\04.BubbleSort.csproj", "{74134C6D-9825-4364-ABE7-D83CA9D1B46E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubbleSortTests", "BubbleSortTests\BubbleSortTests.csproj", "{5F23EC02-5263-4879-9239-D9FEB97056B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.BubbleSortTests", "BubbleSortTests\04.BubbleSortTests.csproj", "{5F23EC02-5263-4879-9239-D9FEB97056B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.IntegrationTests", "05.IntegrationTests\05.IntegrationTests.csproj", "{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{5F23EC02-5263-4879-9239-D9FEB97056B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F23EC02-5263-4879-9239-D9FEB97056B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F23EC02-5263-4879-9239-D9FEB97056B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
