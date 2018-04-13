@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.BubbleSort", "BubbleSort
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04.BubbleSortTests", "BubbleSortTests\04.BubbleSortTests.csproj", "{5F23EC02-5263-4879-9239-D9FEB97056B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.IntegrationTests", "05.IntegrationTests\05.IntegrationTests.csproj", "{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.Integration", "05.IntegrationTests\05.Integration.csproj", "{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.Twitter", "06.Twitter\06.Twitter.csproj", "{62ED77B7-BF28-4A2B-B72A-B704F10CC8BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A473F1F4-6E7A-4968-B22E-6F2AA782CDB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62ED77B7-BF28-4A2B-B72A-B704F10CC8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62ED77B7-BF28-4A2B-B72A-B704F10CC8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62ED77B7-BF28-4A2B-B72A-B704F10CC8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62ED77B7-BF28-4A2B-B72A-B704F10CC8BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

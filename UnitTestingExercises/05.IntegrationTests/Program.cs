@@ -1,4 +1,4 @@
-﻿namespace _05.IntegrationTests
+﻿namespace _05.Integration
 {
     public class Program
     {
