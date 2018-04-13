@@ -1,5 +1,4 @@
-﻿using System;
-using _06.Twitter.Models;
+﻿using _06.Twitter.Models;
 
 namespace _06.Twitter
 {
