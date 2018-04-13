@@ -6,11 +6,6 @@ namespace BubbleSortTests
 {
     public class Tests
     {
-        //test negatives//done
-        //test with multiple zero digits//done
-        //test with bigNumbers
-        //test default(987...)
-        //test random numbers
         [Test]
         public void NegativeNumbersSort()
         {
@@ -55,6 +50,29 @@ namespace BubbleSortTests
             bubble.Sort();
             var result = bubble.integersToSort;
             Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
+        [SetUp]
+        public void CustomNumbersTest()
+        {
+            var expectedResult = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var toBeSorted = new List<int> { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
+            var bubble = new Bubble(toBeSorted);
+            bubble.Sort();
+            var result = bubble.integersToSort;
+            Assert.AreEqual(result, expectedResult);
+        }
+
+        [Test]
+        public void CharactersSortTest()
+        {
+            var expectedResult = new List<int> { 'a', 'b', 'c' };
+            var toBeSorted = new List<int> { 'c', 'a', 'b' };
+            var bubble = new Bubble(toBeSorted);
+            bubble.Sort();
+            var result = bubble.integersToSort;
+            Assert.AreEqual(result, expectedResult);
         }
     }
 }
