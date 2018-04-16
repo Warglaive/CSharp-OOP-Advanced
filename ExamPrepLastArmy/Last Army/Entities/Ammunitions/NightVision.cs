@@ -1,4 +1,4 @@
-﻿public class NightVision : Ammunition, IAmmunition
+﻿public class NightVision : Ammunition
 {
     public const double Weight = 0.8;
 

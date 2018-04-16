@@ -1,4 +1,4 @@
-﻿public class Helmet : Ammunition, IAmmunition
+﻿public class Helmet : Ammunition
 {
     public const double Weight = 2.3;
 

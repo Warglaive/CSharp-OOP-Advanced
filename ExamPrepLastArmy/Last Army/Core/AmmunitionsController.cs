@@ -5,7 +5,9 @@ public static class AmmunitionsController
 {
     private static List<string> weaponsForRemoval = new List<string>();
 
-    public static void DecreaseAmmunitionsWearLevel(Mission mission, Dictionary<string, List<Ammunition>> wearHouse)
+    public static void DecreaseAmmunitionsWearLevel(
+        Mission mission,
+        Dictionary<string, List<Ammunition>> wearHouse)
     {
         string weaponName = string.Empty;
 

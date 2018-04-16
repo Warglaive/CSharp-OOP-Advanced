@@ -1,4 +1,4 @@
-﻿public class RPG : Ammunition, IAmmunition
+﻿public class RPG : Ammunition
 {
     public const double Weight = 17.1;
 

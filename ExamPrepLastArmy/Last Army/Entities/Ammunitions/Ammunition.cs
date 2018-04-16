@@ -1,7 +1,14 @@
-﻿public abstract class Ammunition
+﻿public abstract class Ammunition:IAmmunition
 {
     public string Name { get; set; }
     public double Weight { get; set; }
+    public double WearLevel { get; }
+
+    public void DecreaseWearLevel(double wearAmount)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public Ammunition(string name, double weigth)
     {
         this.Name = name;
