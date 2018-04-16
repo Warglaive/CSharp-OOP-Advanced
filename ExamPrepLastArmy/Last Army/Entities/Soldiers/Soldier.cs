@@ -10,6 +10,15 @@ public abstract class Soldier : ISoldier
     public double Experience { get; }
     public double Endurance { get; }
     public double OverallSkill { get; }
+
+    public Soldier(string name, int age, double experience, double endurance, double overallSkill)
+    {
+        this.Name = name;
+        this.Age = age;
+        this.Experience = experience;
+        this.Endurance = endurance;
+        this.OverallSkill = overallSkill;
+    }
     public IDictionary<string, IAmmunition> Weapons { get; }
 
     protected abstract IReadOnlyList<string> WeaponsAllowed { get; }
