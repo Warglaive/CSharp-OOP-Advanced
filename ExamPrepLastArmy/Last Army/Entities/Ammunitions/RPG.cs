@@ -6,10 +6,4 @@
         : base(name, Weight)
     {
     }
-
-    public double WearLevel { get; }
-    public void DecreaseWearLevel(double wearAmount)
-    {
-        //
-    }
 }
