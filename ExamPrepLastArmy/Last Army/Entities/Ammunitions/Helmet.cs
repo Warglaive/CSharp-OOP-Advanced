@@ -1,12 +1,15 @@
-﻿namespace Last_Army
+﻿public class Helmet : Ammunition, IAmmunition
 {
-    public class Helmet
-    {
-        public const double Weight = 2.3;
+    public const double Weight = 2.3;
 
-        public Helmet(string name) 
-            : base (name, Weight)
-        {
-        }
+    public Helmet(string name)
+        : base(name, Weight)
+    {
+    }
+
+    public double WearLevel { get; }
+    public void DecreaseWearLevel(double wearAmount)
+    {
+        //
     }
 }

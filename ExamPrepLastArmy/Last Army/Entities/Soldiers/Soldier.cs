@@ -4,11 +4,21 @@ using System.Linq;
 public abstract class Soldier : ISoldier
 {
     private double endurance;
-    
+
+    public string Name { get; }
+    public int Age { get; }
+    public double Experience { get; }
+    public double Endurance { get; }
+    public double OverallSkill { get; }
     public IDictionary<string, IAmmunition> Weapons { get; }
-    
+
     protected abstract IReadOnlyList<string> WeaponsAllowed { get; }
-    
+
+    public void Regenerate()
+    {
+        //
+    }
+
     public bool ReadyForMission(IMission mission)
     {
         if (this.Endurance < mission.EnduranceRequired)
@@ -24,6 +34,11 @@ public abstract class Soldier : ISoldier
         }
 
         return this.Weapons.Values.Count(weapon => weapon.WearLevel <= 0) == 0;
+    }
+
+    public void CompleteMission(IMission mission)
+    {
+        //
     }
 
     private void AmmunitionRevision(double missionWearLevelDecrement)

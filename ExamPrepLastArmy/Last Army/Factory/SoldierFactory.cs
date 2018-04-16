@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace Last_Army.Core
-{
-    public class SoldiersFactory
+﻿public class SoldiersFactory
     {
         public SoldiersFactory()
         {
@@ -27,4 +22,3 @@ namespace Last_Army.Core
             return new SpecialForce(name, age, experience, speed, endurance, motivation, maxWeight);
         }
     }
-}
