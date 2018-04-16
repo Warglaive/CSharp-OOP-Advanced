@@ -8,5 +8,14 @@ public class Corporal : Soldier
     {
     }
 
-    protected override IReadOnlyList<string> WeaponsAllowed { get; }
+    public readonly List<string> weaponsAllowed = new List<string>
+    {
+        "Gun",
+        "AutomaticMachine",
+        "MachineGun",
+        "Helmet",
+        "Knife"
+    };
+
+    protected override IReadOnlyList<string> WeaponsAllowed => this.weaponsAllowed;
 }

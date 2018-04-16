@@ -8,5 +8,11 @@ public class Ranker : Soldier
     {
     }
 
-    protected override IReadOnlyList<string> WeaponsAllowed { get; }
+    private readonly List<string> weaponsAllowed = new List<string>
+    {
+        "Gun",
+        "AutomaticMachine",
+        "Helmet"
+    };
+    protected override IReadOnlyList<string> WeaponsAllowed => this.weaponsAllowed;
 }
