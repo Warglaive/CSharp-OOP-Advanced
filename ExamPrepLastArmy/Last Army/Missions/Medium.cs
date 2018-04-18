@@ -1,9 +1,16 @@
 ﻿public class Medium : Mission
 {
-    private const double EnduranceRequiredMedium = 50;
+    private const string name = "Capturing dangerous criminals";
+    private const double enduranceRequired = 50;
+    private const double wearLevelDecrement = 50;
+    public override string Name => name;
+
+    public override double EnduranceRequired => enduranceRequired;
+    public override double WearLevelDecrement => wearLevelDecrement;
 
     public Medium(double scoreToComplete)
-    : base(EnduranceRequiredMedium, scoreToComplete)
+        : base(scoreToComplete)
     {
+
     }
 }

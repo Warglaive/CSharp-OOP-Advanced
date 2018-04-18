@@ -2,23 +2,27 @@
 
 public class SpecialForce : Soldier
 {
-    private const double OverallSkillMiltiplier = 3.5;
-    private readonly List<string> weaponsAllowed = new List<string>
-        {
-            "Gun",
-            "AutomaticMachine",
-            "MachineGun",
-            "RPG",
-            "Helmet",
-            "Knife",
-            "NightVision"
-        };
+    public const double overallSkillMultiplier = 3.5;
+    public override double OverallSkillMultiplier => overallSkillMultiplier;
+    private const int regenerateIncrease = 30;
 
-    public SpecialForce(string name, int age
-        , double experience, double endurance, double overallSkill)
-        : base(name, age, experience, endurance, overallSkill)
+    private readonly List<string> weaponsAllowed = new List<string>
+    {
+        "Gun",
+        "AutomaticMachine",
+        "MachineGun",
+        "RPG",
+        "Helmet",
+        "Knife",
+        "NightVision"
+    };
+
+    public override List<string> WeasponsAllowed => this.weaponsAllowed;
+
+    protected override int RegenerateIncrease => regenerateIncrease;
+
+    public SpecialForce(string name, int age, double experience, double endurance)
+        : base(name, age, experience, endurance)
     {
     }
-
-    protected override IReadOnlyList<string> WeaponsAllowed => this.weaponsAllowed;
 }

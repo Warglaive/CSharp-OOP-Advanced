@@ -1,11 +1,12 @@
-﻿public abstract class Mission
+﻿public abstract class Mission : IMission
 {
-    public double EnduranceRequired { get; set; }
-    public double ScoreToComplete { get; set; }
+    public abstract string Name { get; }
+    public abstract double EnduranceRequired { get; }
+    public double ScoreToComplete { get; }
+    public abstract double WearLevelDecrement { get; }
 
-    public Mission(double enduranceRequired, double scoreToComplete)
+    public Mission(double scoreToComplete)
     {
-        this.EnduranceRequired = enduranceRequired;
         this.ScoreToComplete = scoreToComplete;
     }
 }

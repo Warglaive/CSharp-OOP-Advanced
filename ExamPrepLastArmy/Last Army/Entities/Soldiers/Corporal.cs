@@ -2,9 +2,10 @@
 
 public class Corporal : Soldier
 {
+    public const double overallSkillMultiplier = 2.5;
     public Corporal(string name, int age, double experience
-        , double endurance, double overallSkill)
-    : base(name, age, experience, endurance, overallSkill)
+        , double endurance)
+    : base(name, age, experience, endurance)
     {
     }
 
@@ -17,5 +18,6 @@ public class Corporal : Soldier
         "Knife"
     };
 
-    protected override IReadOnlyList<string> WeaponsAllowed => this.weaponsAllowed;
+    public override double OverallSkillMultiplier => overallSkillMultiplier;
+    public override List<string> WeasponsAllowed => this.weaponsAllowed;
 }

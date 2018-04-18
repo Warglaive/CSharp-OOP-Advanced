@@ -1,9 +1,5 @@
 ﻿public class RPG : Ammunition
 {
-    public const double Weight = 17.1;
-    public const double wearLevel = Weight * 100;
-    public RPG(string name)
-        : base(name, Weight, wearLevel)
-    {
-    }
+    private const double WeigthMultiplier = 17.1;
+    public override double Weight => WeigthMultiplier;
 }

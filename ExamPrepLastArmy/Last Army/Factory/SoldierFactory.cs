@@ -1,24 +1,20 @@
-﻿public class SoldiersFactory
+﻿using System;
+using System.Linq;
+using System.Reflection;
+
+public class SoldierFactory : ISoldierFactory
+{
+    public ISoldier CreateSoldier(string soldierTypeName, string name, int age, double experience, double endurance)
     {
-        public SoldiersFactory()
-        {
-        }
-        //name, age, experience, speed, endurance, motivation, maxWeight
-        public static Soldier GenerateRanker(string name, int age, int experience, double speed, double endurance,
-            double motivation, double maxWeight)
-        {
-            return new Ranker(name, age, experience, speed, endurance, motivation, maxWeight);
-        }
+        var type = Assembly
+            .GetCallingAssembly()
+            .GetTypes()
+            .Single(s => s.Name == soldierTypeName);
 
-        public static Soldier GenerateCorporal(string name, int age, int experience, double speed, double endurance,
-            double motivation, double maxWeight)
-        {
-            return new Corporal(name, age, experience, speed, endurance, motivation, maxWeight);
-        }
+        //calling ctor with specified arguments
+        var instancedClass = (ISoldier)Activator
+            .CreateInstance(type, name, age, experience, endurance);
 
-        public static Soldier GenerateSpecialForce(string name, int age, int experience, double speed, double endurance,
-            double motivation, double maxWeight)
-        {
-            return new SpecialForce(name, age, experience, speed, endurance, motivation, maxWeight);
-        }
+        return instancedClass;
     }
+}

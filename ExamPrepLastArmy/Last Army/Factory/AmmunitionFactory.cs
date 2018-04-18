@@ -1,25 +1,18 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 
-public class AmmunitionFactory
+public class AmmunitionFactory : IAmmunitionFactory
 {
-    public AmmunitionFactory()
-    {
-    }
-
-    public static IAmmunition CreateAmmunition(string name)
+    IAmmunition IAmmunitionFactory.CreateAmmunition(string ammunitionName)
     {
         //reflection
-        var type = Type.GetType(name);
+        var type = Assembly
+            .GetCallingAssembly()
+            .GetTypes()
+            .Single(t => t.Name == ammunitionName);
+
         var classInstance = (IAmmunition)Activator.CreateInstance(type);
         return classInstance;
-
-    }
-
-    public static Ammunition CreateAmmunitions(string name, int number)
-    {
-        var type = Type.GetType(name);
-        var classInstance = (Ammunition)Activator.CreateInstance(type);
-        return classInstance;
-        //fix number
     }
 }

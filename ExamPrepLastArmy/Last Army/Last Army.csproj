@@ -49,7 +49,12 @@
     <Compile Include="Core\Output.cs" />
     <Compile Include="Core\SoldierController.cs" />
     <Compile Include="Entities\Ammunitions\Ammunition.cs" />
+    <Compile Include="Entities\Army.cs" />
     <Compile Include="Entities\Soldiers\Corporal.cs" />
+    <Compile Include="Entities\WareHouse.cs" />
+    <Compile Include="Factory\MissionFactory.cs" />
+    <Compile Include="Interfaces\IWareHouse.cs" />
+    <Compile Include="OutputMessages\OutputMessages.cs" />
     <Compile Include="Entities\Soldiers\Ranker.cs" />
     <Compile Include="Factory\AmmunitionFactory.cs" />
     <Compile Include="Factory\SoldierFactory.cs" />

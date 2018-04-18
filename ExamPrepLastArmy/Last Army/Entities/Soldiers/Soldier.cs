@@ -1,32 +1,53 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public abstract class Soldier : ISoldier
 {
-    private double endurance;
+    private const int MaxEndurance = 100;
+    private const int BaseRegeneraIncrease = 10;
 
     public string Name { get; }
     public int Age { get; }
-    public double Experience { get; }
-    public double Endurance { get; }
-    public double OverallSkill { get; }
+    public double Experience { get; private set; }
 
-    public Soldier(string name, int age, double experience, double endurance, double overallSkill)
+    private double endurance;
+
+    public double Endurance
+    {
+        get { return endurance; }
+        set
+        {
+            endurance = Math.Min(value, MaxEndurance);
+        }
+    }
+
+    public abstract double OverallSkillMultiplier { get; }
+
+    public double OverallSkill => (this.Age + this.Experience)
+        * OverallSkillMultiplier;
+
+    public abstract List<string> WeasponsAllowed { get; }
+
+    public IDictionary<string, IAmmunition> Weapons { get; }
+
+    protected virtual int RegenerateIncrease => BaseRegeneraIncrease;
+
+    protected Soldier(string name, int age, double experience, double endurance)
     {
         this.Name = name;
         this.Age = age;
         this.Experience = experience;
         this.Endurance = endurance;
-        this.OverallSkill = overallSkill;
-    }
-    public IDictionary<string, IAmmunition> Weapons { get; }
 
-    protected abstract IReadOnlyList<string> WeaponsAllowed { get; }
+        this.Weapons = new Dictionary<string, IAmmunition>();
 
-    public void Regenerate()
-    {
-        //
+        foreach (var ammunition in this.WeasponsAllowed)
+        {
+            this.Weapons.Add(ammunition, null);
+        }
     }
+
 
     public bool ReadyForMission(IMission mission)
     {
@@ -41,27 +62,27 @@ public abstract class Soldier : ISoldier
         {
             return false;
         }
+        return this.Weapons.Values.All(weapon => weapon.WearLevel > 0);
 
-        return this.Weapons.Values.Count(weapon => weapon.WearLevel <= 0) == 0;
     }
 
     public void CompleteMission(IMission mission)
     {
-        //
-    }
-
-    private void AmmunitionRevision(double missionWearLevelDecrement)
-    {
-        IEnumerable<string> keys = this.Weapons.Keys.ToList();
-        foreach (string weaponName in keys)
+        this.Experience += mission.EnduranceRequired;
+        this.Endurance -= mission.EnduranceRequired;
+        foreach (var weapon in this.Weapons.Values.Where(w => w != null))
         {
-            this.Weapons[weaponName].DecreaseWearLevel(missionWearLevelDecrement);
-
-            if (this.Weapons[weaponName].WearLevel <= 0)
+            weapon.DecreaseWearLevel(mission.WearLevelDecrement);
+            if (weapon.WearLevel <= 0)
             {
-                this.Weapons[weaponName] = null;
+                this.Weapons[weapon.Name] = null;
             }
         }
+    }
+
+    public void Regenerate()
+    {
+        this.Endurance += this.Age + this.RegenerateIncrease;
     }
 
     public override string ToString() => string.Format(OutputMessages.SoldierToString, this.Name, this.OverallSkill);
