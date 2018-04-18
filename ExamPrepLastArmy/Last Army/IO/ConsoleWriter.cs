@@ -1,9 +1,22 @@
 ﻿using System;
+using System.Text;
 
-class ConsoleWriter
+class ConsoleWriter : IWriter
 {
-    public static void WriteLine(string output)
+    private StringBuilder stringBuilder;
+
+    public ConsoleWriter()
     {
-        Console.WriteLine(output);
+        this.stringBuilder = new StringBuilder();
+    }
+
+    public void AppendLine(string line)
+    {
+        stringBuilder.AppendLine(line);
+    }
+
+    public void WriteLineAll()
+    {
+        Console.WriteLine(stringBuilder.ToString().Trim());
     }
 }

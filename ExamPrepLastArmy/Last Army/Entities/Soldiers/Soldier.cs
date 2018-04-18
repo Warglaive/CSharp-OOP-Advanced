@@ -70,6 +70,7 @@ public abstract class Soldier : ISoldier
     {
         this.Experience += mission.EnduranceRequired;
         this.Endurance -= mission.EnduranceRequired;
+        //bug
         foreach (var weapon in this.Weapons.Values.Where(w => w != null))
         {
             weapon.DecreaseWearLevel(mission.WearLevelDecrement);

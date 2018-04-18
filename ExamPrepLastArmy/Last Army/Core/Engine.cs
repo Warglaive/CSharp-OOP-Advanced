@@ -3,13 +3,20 @@ using System.Text;
 
 public class Engine
 {
+    private const string EnoughtPullBack = "Enough! Pull back!";
+    private IReader Reader;
+    private IWriter Writer;
+    public Engine(IReader reader, IWriter writer)
+    {
+        this.Reader = reader;
+        this.Writer = writer;
+    }
     public void Run()
     {
-        var input = ConsoleReader.ReadLine();
-        var gameController = new GameController();
-        var result = new StringBuilder();
+        var input = this.Reader.ReadLine();
+        var gameController = new GameController(this.Writer);
 
-        while (!input.Equals("Enough! Pull back!"))
+        while (!input.Equals(EnoughtPullBack))
         {
             try
             {
@@ -17,12 +24,12 @@ public class Engine
             }
             catch (ArgumentException arg)
             {
-                result.AppendLine(arg.Message);
+                Writer.AppendLine(arg.Message);
             }
-            input = ConsoleReader.ReadLine();
+            input = this.Reader.ReadLine();
         }
 
-        gameController.RequestResult(result);
-        ConsoleWriter.WriteLine(result.ToString());
+        gameController.RequestResult();
+        Writer.WriteLineAll();
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 
-static class ConsoleReader
+public class ConsoleReader : IReader
 {
-    public static string ReadLine()
+    public string ReadLine()
     {
         return Console.ReadLine();
     }

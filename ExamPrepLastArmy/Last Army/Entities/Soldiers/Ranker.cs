@@ -5,7 +5,7 @@ public class Ranker : Soldier
     public List<string> weaponsAllowed = new List<string>
     {
         "Gun",
-        "AutomaticM",
+        "AutomaticMachine",
         "Helmet"
     };
 

@@ -37,6 +37,7 @@ public class WareHouse : IWareHouse
             .Weapons
             .Where(w => w.Value == null)
             .Select(w => w.Key).ToList();
+
         var isSoldierEquipped = true;
         foreach (var weapon in wornOutWeapons)
         {
