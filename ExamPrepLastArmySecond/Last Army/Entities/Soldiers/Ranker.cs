@@ -2,7 +2,6 @@
 
 public class Ranker : Soldier
 {
-    private const double OverallSkillMiltiplier = 1.5;
     public List<string> weapons = new List<string>
     {
         "Gun",
@@ -10,6 +9,12 @@ public class Ranker : Soldier
         "Helmet"
     };
 
-    public override double OverallSkill => OverallSkillMiltiplier;
+    public override double OverallSkillMultiplier => 1.5;
+    public override double OverallSkill => base.OverallSkill * OverallSkillMultiplier;
     protected override IReadOnlyList<string> WeaponsAllowed => this.weapons;
+
+    public Ranker(string name, int age, double experience, double endurance)
+        : base(name, age, experience, endurance)
+    {
+    }
 }

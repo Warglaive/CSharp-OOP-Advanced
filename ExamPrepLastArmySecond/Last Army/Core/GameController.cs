@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+
 public class GameController
 {
     private IArmy Army;
     private IWareHouse wearHouse;
     private MissionController missionControllerField;
-
+    //to add mission factory
+    public ISoldierFactory SoldierFactory;
     public GameController()
     {
         this.Army = new Army();
         this.wearHouse = new WareHouse();
         this.missionControllerField = new MissionController(this.Army, this.wearHouse);
+        this.SoldierFactory = new SoldiersFactory();
     }
 
     public void GiveInputToGameController(string input)
@@ -19,18 +24,28 @@ public class GameController
         var command = data[0];
         if (command.Equals("Soldier"))
         {
+            var type = data[1];
+            var name = data[2];
+            var age = int.Parse(data[3]);
+            var experiance = double.Parse(data[4]);
+            var endurance = double.Parse(data[5]);
+            var soldier = this.SoldierFactory.CreateSoldier(type, name, age, experiance, endurance);
+            this.Army.AddSoldier(soldier);
 
         }
-        else if (command.Equals("WearHouse"))
+        else if (command.Equals("WareHouse"))
         {
-            var name = data[1];
-            var number = int.Parse(data[2]);
-
-          //  AddAmmunitions(AmmunitionFactory.CreateAmmunitions(name, number));
+            var ammunition = data[1];
+            var count = int.Parse(data[2]);
+            this.wearHouse.AddAmmunitions(ammunition, count);
         }
         else if (command.Equals("Mission"))
         {
-            this.missionControllerField.PerformMission(new Easy());
+            var missionType = data[1];
+            var type = Assembly.GetCallingAssembly()
+                .GetTypes().First(t => t.Name == missionType);
+            var mission = (IMission)Activator.CreateInstance(type);
+            this.missionControllerField.PerformMission(mission);
         }
     }
 

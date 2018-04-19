@@ -4,23 +4,20 @@ using System.Linq;
 public abstract class Soldier : ISoldier
 {
     private ConsoleWriter writer;
-
     private double endurance;
 
-    public string Name { get; }
-    public int Age { get; }
-    public double Experience { get; }
-    public double Endurance { get; }
-    //bug maybe
-    public virtual double OverallSkill => this.Age + this.Experience;
-
-    public IDictionary<string, IAmmunition> Weapons { get; }
-
-    protected abstract IReadOnlyList<string> WeaponsAllowed { get; }
-
-    protected Soldier()
+    public Soldier(string name, int age, double experience, double endurance)
     {
-        // this.OverallSkill = this.Age + this.Experience;
+        this.Name = name;
+        this.Age = age;
+        this.Experience = experience;
+        this.Endurance = endurance;
+
+        this.Weapons = new Dictionary<string, IAmmunition>();
+    }
+
+    public void InitializeWeapons()
+    {
         this.writer = new ConsoleWriter();
         //bug maybe
         foreach (var weapon in WeaponsAllowed)
@@ -32,11 +29,24 @@ public abstract class Soldier : ISoldier
             }
             else
             {
-                //add to army
-
+                var index = this.Weapons[weapon];
+                this.Weapons[weapon] = WeaponsAllowed[weapon];
             }
         }
     }
+
+    public string Name { get; }
+    public int Age { get; }
+    public double Experience { get; }
+    public double Endurance { get; }
+    //bug maybe
+    public abstract double OverallSkillMultiplier { get; }
+
+    public virtual double OverallSkill => (this.Age + this.Experience);
+
+    public IDictionary<string, IAmmunition> Weapons { get; }
+
+    protected abstract IReadOnlyList<string> WeaponsAllowed { get; }
 
     public virtual void Regenerate()
     {

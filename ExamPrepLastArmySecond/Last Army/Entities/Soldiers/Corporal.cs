@@ -2,7 +2,6 @@
 
 public class Corporal : Soldier
 {
-    private const double OverallSkillMiltiplier = 2.5;
     public List<string> weapons = new List<string>
     {
         "Gun",
@@ -12,6 +11,12 @@ public class Corporal : Soldier
         "Knife"
     };
 
-    public override double OverallSkill => OverallSkillMiltiplier;
+    public override double OverallSkillMultiplier => 2.5;
+    public override double OverallSkill => base.OverallSkill * OverallSkillMultiplier;
     protected override IReadOnlyList<string> WeaponsAllowed => this.weapons;
+
+    public Corporal(string name, int age, double experience, double endurance)
+        : base(name, age, experience, endurance)
+    {
+    }
 }

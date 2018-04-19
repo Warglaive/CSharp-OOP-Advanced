@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
 public class Army : IArmy
 {
-    public IReadOnlyList<ISoldier> Soldiers { get; }
+    private List<ISoldier> soldiersList;
+    public IReadOnlyList<ISoldier> Soldiers => soldiersList;
 
+    public Army()
+    {
+        this.soldiersList = new List<ISoldier>();
+    }
     public void AddSoldier(ISoldier soldier)
     {
-        //
+        soldiersList.Add(soldier);
     }
 
     public void RegenerateTeam(string soldierType)
