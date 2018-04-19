@@ -42,9 +42,10 @@ public class GameController
         else if (command.Equals("Mission"))
         {
             var missionType = data[1];
+            var scoreToComplete = int.Parse(data[2]);
             var type = Assembly.GetCallingAssembly()
                 .GetTypes().First(t => t.Name == missionType);
-            var mission = (IMission)Activator.CreateInstance(type);
+            var mission = (IMission)Activator.CreateInstance(type, scoreToComplete);
             this.missionControllerField.PerformMission(mission);
         }
     }

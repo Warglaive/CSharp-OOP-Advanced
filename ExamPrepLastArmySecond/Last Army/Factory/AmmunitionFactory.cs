@@ -8,6 +8,6 @@ public class AmmunitionFactory : IAmmunitionFactory
     {
         var type = Assembly.GetCallingAssembly()
             .GetTypes().First(n => n.Name == ammunitionName);
-        return (IAmmunition)Activator.CreateInstance(type);
+        return (IAmmunition)Activator.CreateInstance(type,ammunitionName);
     }
 }

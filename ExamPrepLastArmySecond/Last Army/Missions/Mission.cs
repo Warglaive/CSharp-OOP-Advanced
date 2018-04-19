@@ -1,7 +1,13 @@
 ﻿public abstract class Mission : IMission
 {
     public string Name { get; }
-    public double EnduranceRequired { get; }
+    public abstract double EnduranceRequired { get; }
     public double ScoreToComplete { get; }
-    public double WearLevelDecrement { get; }
+
+    protected Mission(string name, double scoreToComplete)
+    {
+        this.Name = name;
+        this.ScoreToComplete = scoreToComplete;
+    }
+    public abstract double WearLevelDecrement { get; }
 }

@@ -13,26 +13,17 @@ public abstract class Soldier : ISoldier
         this.Experience = experience;
         this.Endurance = endurance;
 
-        this.Weapons = new Dictionary<string, IAmmunition>();
+        this.Weapons = InitializeWeapons();
     }
 
-    public void InitializeWeapons()
+    private IDictionary<string, IAmmunition> InitializeWeapons()
     {
-        this.writer = new ConsoleWriter();
-        //bug maybe
-        foreach (var weapon in WeaponsAllowed)
+        var weapons = new Dictionary<string, IAmmunition>();
+        foreach (var weapon in this.WeaponsAllowed)
         {
-            if (this.Weapons[weapon] == null)
-            {
-                writer.AppendLine($"There is no weapon for {this.GetType().Name} {this.Name}!");
-                break;
-            }
-            else
-            {
-                var index = this.Weapons[weapon];
-                this.Weapons[weapon] = WeaponsAllowed[weapon];
-            }
+            weapons.Add(weapon, null);
         }
+        return weapons;
     }
 
     public string Name { get; }
