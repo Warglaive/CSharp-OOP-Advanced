@@ -13,6 +13,6 @@ public class Ranker : Soldier
     {
     }
 
-    public override double OverallSkillMultiplier { get; }
+    public override double OverallSkillMultiplier => base.OverallSkill * 1.5;
     public override List<string> WeasponsAllowed => this.weaponsAllowed;
 }

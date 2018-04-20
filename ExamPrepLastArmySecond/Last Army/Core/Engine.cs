@@ -15,14 +15,14 @@ public class Engine
     public void Run()
     {
         var input = reader.ReadLine();
-        var gameController = new GameController();
+        var gameController = new GameController(this.writer);
         var result = new StringBuilder();
 
         while (!input.Equals(EnoughtPullBack))
         {
             try
             {
-                gameController.GiveInputToGameController(input);
+                result.AppendLine(gameController.GiveInputToGameController(input));
             }
             catch (ArgumentException arg)
             {
@@ -31,7 +31,7 @@ public class Engine
             input = reader.ReadLine();
         }
 
-        //gameController.RequestResult(result);
         this.writer.AppendLine(result.ToString());
+        Console.WriteLine(this.writer.WriteAllLines());
     }
 }

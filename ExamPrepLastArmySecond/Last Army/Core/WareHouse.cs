@@ -20,7 +20,7 @@ public class WareHouse : IWareHouse
 
     public bool TryEquipSoldier(ISoldier soldier)
     {
-        bool isEquipped = true;
+        bool isEquipped = false;
 
         var missingWeapons = soldier
             .Weapons.Where(v => v.Value == null)
@@ -34,6 +34,11 @@ public class WareHouse : IWareHouse
             {
                 soldier.Weapons[missingWeaponName] = this.AmmunitionFactory.CreateAmmunition(missingWeaponName);
                 this.ammunitionsQuantities[missingWeaponName]--;
+                isEquipped = true;
+            }
+            else
+            {
+                isEquipped = false;
             }
         }
 

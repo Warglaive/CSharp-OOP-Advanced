@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -8,18 +7,21 @@ public class GameController
     private IArmy Army;
     private IWareHouse wearHouse;
     private MissionController missionControllerField;
+    public IWriter Writer;
     //to add mission factory
     public ISoldierFactory SoldierFactory;
-    public GameController()
+    public GameController(IWriter writer)
     {
         this.Army = new Army();
         this.wearHouse = new WareHouse();
         this.missionControllerField = new MissionController(this.Army, this.wearHouse);
         this.SoldierFactory = new SoldiersFactory();
+        this.Writer = writer;
     }
 
-    public void GiveInputToGameController(string input)
+    public string GiveInputToGameController(string input)
     {
+        string result = string.Empty;
         var data = input.Split();
         var command = data[0];
         if (command.Equals("Soldier"))
@@ -30,6 +32,11 @@ public class GameController
             var experiance = double.Parse(data[4]);
             var endurance = double.Parse(data[5]);
             var soldier = this.SoldierFactory.CreateSoldier(type, name, age, experiance, endurance);
+
+            if (!wearHouse.TryEquipSoldier(soldier))
+            {
+                this.Writer.AppendLine(string.Format(OutputMessages.SoldierCannonBeEquipped, soldier.GetType().Name, soldier.Name));
+            }
             this.Army.AddSoldier(soldier);
 
         }
@@ -42,24 +49,14 @@ public class GameController
         else if (command.Equals("Mission"))
         {
             var missionType = data[1];
-            var scoreToComplete = int.Parse(data[2]);
+            var scoreToComplete = double.Parse(data[2]);
+
             var type = Assembly.GetCallingAssembly()
                 .GetTypes().First(t => t.Name == missionType);
-            var mission = (IMission)Activator.CreateInstance(type, scoreToComplete);
-            this.missionControllerField.PerformMission(mission);
-        }
-    }
 
-    //private void AddAmmunitions(Ammunition ammunition)
-    //{
-    //    if (!this.WearHouse.ContainsKey(ammunition.Name))
-    //    {
-    //        this.WearHouse[ammunition.Name] = new List<Ammunition>();
-    //        this.WearHouse[ammunition.Name].Add(ammunition);
-    //    }
-    //    else
-    //    {
-    //        this.WearHouse[ammunition.Name][0].Number += ammunition.Number;
-    //    }
-    //}
+            var mission = (IMission)Activator.CreateInstance(type, scoreToComplete);
+            result = this.missionControllerField.PerformMission(mission);
+        }
+        return result;
+    }
 }

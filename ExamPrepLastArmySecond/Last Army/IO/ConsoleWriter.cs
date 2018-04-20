@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 
 public class ConsoleWriter : IWriter
 {
@@ -17,6 +16,6 @@ public class ConsoleWriter : IWriter
 
     public string WriteAllLines()
     {
-        return stringBuilder.ToString().Trim();
+        return this.stringBuilder.ToString().Trim();
     }
 }
