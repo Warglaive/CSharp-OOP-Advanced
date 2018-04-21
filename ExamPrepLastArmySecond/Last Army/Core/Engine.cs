@@ -22,7 +22,8 @@ public class Engine
         {
             try
             {
-                result.AppendLine(gameController.GiveInputToGameController(input));
+                gameController.GiveInputToGameController(input);
+                this.writer.WriteAllLines();
             }
             catch (ArgumentException arg)
             {

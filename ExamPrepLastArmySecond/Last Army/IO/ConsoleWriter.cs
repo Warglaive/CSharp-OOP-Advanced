@@ -10,8 +10,7 @@ public class ConsoleWriter : IWriter
     }
     public void AppendLine(string line)
     {
-        //bug maybe
-        this.stringBuilder.AppendLine(line);
+        this.stringBuilder.AppendLine(line.Trim());
     }
 
     public string WriteAllLines()

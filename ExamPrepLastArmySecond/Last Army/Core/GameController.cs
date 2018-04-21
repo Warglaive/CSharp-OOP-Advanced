@@ -19,9 +19,8 @@ public class GameController
         this.Writer = writer;
     }
 
-    public string GiveInputToGameController(string input)
+    public void GiveInputToGameController(string input)
     {
-        string result = string.Empty;
         var data = input.Split();
         var command = data[0];
         if (command.Equals("Soldier"))
@@ -55,8 +54,18 @@ public class GameController
                 .GetTypes().First(t => t.Name == missionType);
 
             var mission = (IMission)Activator.CreateInstance(type, scoreToComplete);
-            result = this.missionControllerField.PerformMission(mission);
+            var missionResult = this.missionControllerField.PerformMission(mission);
+
+            this.Writer.AppendLine(missionResult);
+            this.missionControllerField.FailMissionsOnHold();
+
+            this.Writer.AppendLine("Results:");
+
+            var successfulMissionsCounter = this.missionControllerField.SuccessMissionCounter;
+            var failedMissionsCounter = this.missionControllerField.FailedMissionCounter;
+
+            this.Writer.AppendLine(string.Format(OutputMessages.SuccessfulMissionsCount, successfulMissionsCounter));
+            this.Writer.AppendLine(string.Format(OutputMessages.FailedMissionsCount, failedMissionsCounter));
         }
-        return result;
     }
 }
