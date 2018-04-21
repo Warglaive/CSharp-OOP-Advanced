@@ -7,7 +7,10 @@ public class GameController
     private IArmy Army;
     private IWareHouse wearHouse;
     private MissionController missionControllerField;
-    public IWriter Writer;
+    private IWriter Writer;
+    private int successfulMissionsCounter;
+    private int failedMissionsCounter;
+
     //to add mission factory
     public ISoldierFactory SoldierFactory;
     public GameController(IWriter writer)
@@ -47,6 +50,7 @@ public class GameController
         }
         else if (command.Equals("Mission"))
         {
+            this.Writer.Clear();
             var missionType = data[1];
             var scoreToComplete = double.Parse(data[2]);
 
@@ -56,16 +60,16 @@ public class GameController
             var mission = (IMission)Activator.CreateInstance(type, scoreToComplete);
             var missionResult = this.missionControllerField.PerformMission(mission);
 
-            this.Writer.AppendLine(missionResult);
+            Console.WriteLine(missionResult.Trim());
             this.missionControllerField.FailMissionsOnHold();
 
-            this.Writer.AppendLine("Results:");
+            //this.Writer.AppendLine("Results:");
 
-            var successfulMissionsCounter = this.missionControllerField.SuccessMissionCounter;
-            var failedMissionsCounter = this.missionControllerField.FailedMissionCounter;
+            this.successfulMissionsCounter = this.missionControllerField.SuccessMissionCounter;
+            this.failedMissionsCounter = this.missionControllerField.FailedMissionCounter;
 
-            this.Writer.AppendLine(string.Format(OutputMessages.SuccessfulMissionsCount, successfulMissionsCounter));
-            this.Writer.AppendLine(string.Format(OutputMessages.FailedMissionsCount, failedMissionsCounter));
         }
+        this.Writer.AppendLine(string.Format(OutputMessages.SuccessfulMissionsCount, successfulMissionsCounter));
+        this.Writer.AppendLine(string.Format(OutputMessages.FailedMissionsCount, failedMissionsCounter));
     }
 }

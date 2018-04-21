@@ -17,4 +17,9 @@ public class ConsoleWriter : IWriter
     {
         return this.stringBuilder.ToString().Trim();
     }
+
+    public void Clear()
+    {
+        this.stringBuilder.Clear();
+    }
 }
