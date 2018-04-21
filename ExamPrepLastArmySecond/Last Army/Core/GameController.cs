@@ -69,6 +69,7 @@ public class GameController
             this.failedMissionsCounter = this.missionControllerField.FailedMissionCounter;
 
         }
+        this.Writer.AppendLine("Results:");
         this.Writer.AppendLine(string.Format(OutputMessages.SuccessfulMissionsCount, successfulMissionsCounter));
         this.Writer.AppendLine(string.Format(OutputMessages.FailedMissionsCount, failedMissionsCounter));
     }
